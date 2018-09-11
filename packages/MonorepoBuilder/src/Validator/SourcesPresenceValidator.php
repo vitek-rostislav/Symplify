@@ -2,7 +2,6 @@
 
 namespace Symplify\MonorepoBuilder\Validator;
 
-use Symplify\MonorepoBuilder\Exception\MissingComposerJsonFilesException;
 use Symplify\MonorepoBuilder\Exception\Validator\InvalidComposerJsonSetupException;
 use Symplify\MonorepoBuilder\FileSystem\ComposerJsonProvider;
 
@@ -31,7 +30,7 @@ final class SourcesPresenceValidator
     {
         $composerPackageFiles = $this->composerJsonProvider->getPackagesFileInfos();
         if (! count($composerPackageFiles)) {
-            throw new MissingComposerJsonFilesException(sprintf(
+            throw new InvalidComposerJsonSetupException(sprintf(
                 'No package "composer.json" was found in package directories: "%s". Add "composer.json" or configure another directory in "parameters > package_directories"',
                 implode('", "', $this->packageDirectories)
             ));
