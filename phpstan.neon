@@ -3,6 +3,7 @@ includes:
 
 parameters:
     excludes_analyse:
+        - *packages/MonorepoBuilder/packages/Init/templates/*
         - *packages/CodingStandard/tests/**/correct*
         - *packages/CodingStandard/tests/**/wrong*
         # tests
